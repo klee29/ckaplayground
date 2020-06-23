@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+    name: dev 
+    # or add namespace: dev at regular pod yaml file
+    # kubectl config set-context $(kubectl config current-context) -- namespace=dev
+    

@@ -1,5 +1,5 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: Deployment # Similiar as replicaset except this
 metadata:
     name: myapp-Deployment
     labels:
@@ -20,4 +20,3 @@ spec:
     selector:
         matchLabels:
             type: front-end
-            
