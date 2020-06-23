@@ -16,10 +16,10 @@ spec:
             containers:
                 - name: nginx-container
                   image: nginx 
-replicas: 3
-selector: 
-    matchLables:
-        type: front-end 
+    replicas: 3
+    selector: 
+        matchLables:
+            type: front-end 
         # major difference betwwen replica-controller and replica-set
         # can create set before replica behavior
         # NOT Mandatory Option! But, it is useful 
