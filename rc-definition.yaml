@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+    name: myapp-rc
+    labels:
+        app: myapp
+        type: front-end
+spec:
+    template: # for define the pod; we can reuse pod file or put all information directly
+        metadata: myapp-pod
+        labes:
+            app: myapp
+            type: front-end
+        sepc:
+            containers:
+                - name: nginx-container 
+                  iamge: nginx 
+replicas: 3 # how many replication will be created 
+
