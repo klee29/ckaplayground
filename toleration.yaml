@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+    name: myapp-pod
+spec:
+    containers:
+        - name: nginx-container
+          image: nginx 
+    tolerations:
+        - key: "app"
+          operator: "Equal"
+          value: "blue" # taint value 
+          effect: "NoSchedule" # PreferNoSchedule, NoExecute; 3 options 
+          # NoExecute: if pod already in some-node, and that node change some specific taint option
+          # Not tainted pod will be not executed anymore. 
