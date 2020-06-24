@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+    myapp-Pod
+spec:
+    containers:
+        - name: data-processor
+          image: data-processor
+    nodeSelector:
+        size: Large # key value pair of label 
+        # kubectl label nodes 'node-name' 'label-key'='label-value' 
+        # But only for simple one, Complex? Node Affinity! 
