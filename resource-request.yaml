@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+    name: simple-app
+    labels: 
+        name: simple-app
+spec:
+    containers:
+        - name: simple-app
+          image: simple-app
+          ports:
+            - containerPort: 8080
+          resources:
+            requests:
+                memory: XXX # Mi, Ki, Gi, default 512Mi
+                cpu: xxx # min 0.1(100m), default 1
+            limits:
+                memory: xxx 
+                cpu: xxx 

@@ -12,7 +12,7 @@ spec:
                 nodeSelectorTerms:
                     - matchExpressions:
                         - key: size
-                          operator: In # NotIn 
+                          operator: In # NotIn  | Exists 
                           values:
                             - Large # With 'NotIn' -> Small or Medium
 # More information: https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/
