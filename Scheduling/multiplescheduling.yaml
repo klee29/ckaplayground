@@ -1,5 +1,6 @@
 # we can use multiple schedulers
 # default: kube-scheduler.service, we can add custom scheduler more.
+# multi scheduler can use multiple master node accross. 
 apiVersion: v1
 kind: Pod
 metadata:
@@ -12,6 +13,7 @@ spec:
             - --address-127.0.0.1
             - --kubeconfig=/etc/kubernetes/scheduler.conf
             - --leader-elect=true
+          # - --scheduler-name=my-custom-scheduler <-- custom scheduler
           image: k8s.gcr.io/kube-scheduler-amd64:v.1.11.3
           name: kube-scheduler 
-          
+# and we can specify custom additional scheduler at Pod.yaml with 'schedulerName'.
