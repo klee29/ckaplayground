@@ -23,5 +23,3 @@ spec:
             containers:
                 - name: simple-webapp
                   image: simple-webapp # space sensitive
-
-    
