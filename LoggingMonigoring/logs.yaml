@@ -9,3 +9,4 @@ spec:
         - name: image-processor
           iamge: image-processor # same kind of image above 
 # when we run this file at kubernetes, we need to specify image name
+# kubectl logs 'pods name' -c 'container name; NOT image name or ID'

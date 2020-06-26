@@ -1,0 +1,34 @@
+# rollout -> creates new provision ... | kubectl rollout status deployment/'dep name'
+# strategy: all at once? -> Recreate causes app. down happened
+#           Rolling Update (default deployment strategy)
+# Upgrade and Rollback process? one up one down | one down one up 
+apiVersion: apps/v1
+kind: deployment
+metadata:
+    name: myapp-deployment
+    labels:
+        app: myapp
+        type: front-end
+spec:
+    template:
+        metadata:
+            name: myapp-pod
+            labels:
+                app: myapp
+                type: front-end
+        spec:
+            containers:
+                - name: nginx-containers
+                  iamge: nginx
+    replicas: 3
+    selector:
+        mathLabels:
+            type: front-end 
+# apply? kubectl apply -f 'filename' or kubectl set image ... 
+# Summarize commnads: create (kubectl create -f 'file name')
+#                     get (kubectl get deployments )
+#                     apply (kubectl apply -f 'filename')
+#                            update (kubectl set image deployment/myapp-deployment 'nginx=nginx1.2.3')
+#                     status (kubectl rollout status deployment/myapp-deployment)
+#                            (kubectl rollout history deployment/myapp-deployment)
+#                     rollback (kubectl rollout undo deployment/myapp-deployment)
