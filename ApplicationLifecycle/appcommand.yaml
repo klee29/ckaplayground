@@ -10,6 +10,7 @@ metadata:
 spec:
     containers:
         - name: ubuntu-sleeper 
-          iamge: ubuntu-sleeper 
-          command: ["sleep2.0"]
-          args: ["10"] # args field overwirtes by commnad field.
+          image: ubuntu-sleeper 
+          command: # or args - --color
+            - "sleep"
+            - "2000"
