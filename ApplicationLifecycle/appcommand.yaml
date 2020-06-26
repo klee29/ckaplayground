@@ -1,0 +1,15 @@
+# FROM ubuntu
+# ENTRYPOINT: "sleep"
+# CMD: "5" <-- is going to be default value, but it's overwrited.
+# ex) docker run ubuntu-sleeper sleep 10 <- commnad at startup 
+#     docker run ubuntu-sleeper 10 <- entrypoint 
+apiVersion: v1
+kind: Pod
+metadata:
+    name: ubuntu-sleeper-pod 
+spec:
+    containers:
+        - name: ubuntu-sleeper 
+          iamge: ubuntu-sleeper 
+          command: ["sleep2.0"]
+          args: ["10"] # args field overwirtes by commnad field.
