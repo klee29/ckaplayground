@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+    name: event-simulator-Pod
+spec:
+    containers:
+        - name: event-simulator
+          image: event-simulator # which is log docker container image
+        - name: image-processor
+          iamge: image-processor # same kind of image above 
+# when we run this file at kubernetes, we need to specify image name

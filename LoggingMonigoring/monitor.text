@@ -1,0 +1,6 @@
+health, resource, managing --> Monitoring solution: Metrics Server; Data dog, Promethius, ...
+HEAPSTER (Deprecated), Metrics Server; one by one 
+How metric generates? kubelet(cAdvisor) -> Metrics server 
+in Minikube: minikube addons enable metrics-server
+Others: get resource from git -> create 
+View? kubectl top node | pod 
