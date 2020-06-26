@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+    name: simple-webapp
+    labels:
+        name: simple-webapp
+spec:
+    containers:
+        - name: simple-webapp
+          iamge: simple-webapp 
+          ports:
+            - containerPort: 8080
+          envFrom: # or we can inject with single env 
+            - configMapRef:
+                name: app-config # or mysql-config, rds-config ...
