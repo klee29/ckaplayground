@@ -1,0 +1,47 @@
+one of node goes down? -> not accessibled (impacted at user)
+with replicaset? recreates or evits
+back on online? how about pods insided that node? they're gone. 
+kubectl drain node-1 (included several pods) to anouther health node.
+after above step, node-1 is backed on online without scheduling.
+kubectl uncordon node-1 <- makes to node-1 has previous scheduler again.
+cordon? it simply marks 'node' unschedulabled! 
+drain vs cordon? 
+drain: unschedule + remove pod       cordon: unschdule + pod remained
+
+---
+
+component can be different version each other. 
+But, kubectl should be higher version than other component. 
+One minor version upgrade way recommanded (ex 1.0 -> 1.1 ...)
+Easy way? kubeadm helps to upgrade plan 
+   1) Master node -> 2) Worker node, But, controller manager don't delete or create by automatically. 
+or 1) one by one 
+or 1) add new node cluster (newer version) and decommision old version one. 
+With kubeadm, install kubeadm -> kubeadm upgrade apply v1.12.0 
+-> upgrade kubelet on the master node (apt-get upgrade -y kubelet=1.20.0-00) -> restart kubelet 
+At worker node, kubectl drain node-1 (Run this in master node) -> apt-get updgrade -y kubeadm=1.20.0-00 ... 
+-> kubectl uncordon node-1 (rim thin in master node)
+
+---
+
+Resrouce Configuration - by Imperative way 
+                            kubectl create namespace new-namespace 
+                            kubectl create secret
+                            kubectl create configmap 
+                         or Deperative way (by file) 
+   -> store this source code at github or other repository 
+Q) if someone tries to configure by inperative way? how can we cowork with them?
+-> check kube-apiserver  (kuebctl get all --all-namespaces -o yaml > all-deploy-services.yaml)
+-> or other solution (VELORO ...)
+
+ETCD Cluster - backup itself (in 'etcd.service'   --data-dir=/var/lib/etcd)
+               also builtin snapshot.db 
+-> Restore from etcd? 1) stop kube-apiserver (Service kube-apiserver stopped)
+                      2) snapshot restore snapshot.db 
+                      3) add etcd token at service 
+                      4) restart etcd-daemon 
+    'etcdctl' is a command line client for etcd. It needs to set up at version 3, it's prior step; export ETCDCTL_API=3 
+    etcdctl snapshot save -h ' '
+    ETCD db is TLS-enabled which means it needs security mandatories - cacert, cert, endpoints, key 
+    etcdctl snapshot restore -h ' '
+
