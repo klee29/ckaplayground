@@ -1,0 +1,13 @@
+# Example of server side certificate
+apiVersio: v1
+kind: Config 
+clusters:
+    - cluster:
+        certificate-authority: ca.crt 
+        server: https://kube-apiserver:6443 
+      name: kuberntes 
+users:
+    - name: kubernetes-admin 
+      user:
+        client-certificate: admin.crt 
+        client-key: admin.key 

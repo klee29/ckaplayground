@@ -9,3 +9,6 @@ data: # instead of spec!
   # max_allowed_packet: 128M     <-- mysql-config
   # port: 6379
   # rdb-compression: yes         <-- redis-config
+
+# View ConfigMaps? kubectl get configmaps 
+# after inject this ConfigMap file into regular pod

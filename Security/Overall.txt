@@ -1,0 +1,35 @@
+Security Primitives High Level Overview: 
+- kube-apiserver: is center of all operation of kubernete, performs almost any of oeprations. 
+    who? authentication mechanism (username and passwd, username and tokens, certificates, LDAP, service access)
+    what? RBAC (role base access control) or ABAC (Access)
+
+---
+
+Authntication: End-user, Adm or Dev, or Bots(3rd party)
+   --> all user accesses contorlled by kube-apiserver authenticates their request. 
+          how? static passwd, static toekn, certificate, or identity service(LDAP) 
+                   passwd (--basic-auth-file=user-details.csv)
+
+---
+
+TLS Certificate in Kubernetes Overview 
+Uses gauranteed between two servier (or user) 
+
+Certifcate (Public key) - cert + public key => *.crt, *pem 
+            Private key - *.key 
+In cluster? Master & Worker nodes
+kubeclt                     
+scheduler                     -->  KUBE-API server -->   ETCD server 
+kube-controller manager
+kube-proxy                                         -->   KUBELET (to interact with worker node)
+
+Create CA? 
+openssl genrsa -out admin.key 2048
+openssl req -new -key admin.key -subj "\CN=kube-admin" -out admin.scr 
+openssl x509 -req -in admin.csr -CA ca.crt -CAkey ca.k 
+--> we can use this certifacte to use instead of user information (username and password or etc) 
+
+---
+How can we handle all certificate? 
+By manual: really hard! | kubeadm: automatically generate ca for us 
+
