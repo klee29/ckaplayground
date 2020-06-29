@@ -33,3 +33,11 @@ openssl x509 -req -in admin.csr -CA ca.crt -CAkey ca.k
 How can we handle all certificate? 
 By manual: really hard! | kubeadm: automatically generate ca for us 
 
+---
+How can we manage 'Certificate'? 
+Share with someone? or through with someone? Ex) A to Ba -> at CA (Certificate Authority) -> Master Node (with Certificate API)
+1. Create CertificateSigningRequest Object 
+2. Review Requests
+3. Apporve Requests
+4. Share with user  (Ex) jane-csr.yaml) 
+All certificate related behavir via 'Controller Manager' 

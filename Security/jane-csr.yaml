@@ -1,0 +1,14 @@
+apiVersion: certificate.k8s.io/v1beta1
+kind: CertificateSigningRequest
+metadata:
+    name: jane
+spec:
+    groups:
+        - system:authenticated
+    usages:
+        - digital signature
+        - key encipherment
+        - server auth 
+    request: # specify requester and sender 
+    # put csr base 64 
+    
