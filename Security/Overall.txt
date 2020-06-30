@@ -41,3 +41,36 @@ Share with someone? or through with someone? Ex) A to Ba -> at CA (Certificate A
 3. Apporve Requests
 4. Share with user  (Ex) jane-csr.yaml) 
 All certificate related behavir via 'Controller Manager' 
+
+---
+KubeConfig File:
+Three section - Cluster (Development, Production, Google), Contexts (Combine the Cluster and User), Users (Admin Dev user, Prod user)
+We just use already existed information (not create new certificate or so on)
+commnad: kubectl config view --kubeconfig='config name'
+---
+
+API? 
+metrics, healthz, version, api, apis, logs 
+
+api(core group) 
+v1
+namespace, pods, rc, events, endpoitns, ... 
+
+apis(named group)
+apps. extensions, networking,k8s.io, ...   <-- API Groups 
+v1 
+deployments, replicasets, statefulsets ... 
+list, get, cretae, delete <-- verb
+Access API directly? curl https://localhost:6443 -k 
+                     kubectl proxy 
+                 kube proxy != kubectl proxy 
+            
+--- 
+
+RBAC?
+Create rule -> binds rule with user (Rule binding)
+View role? kubectl get roles 
+View role binding? kubectl get rolebindings 
+
+Check permission? can-i 
+ex) kubectl auth can-i create deployments 
