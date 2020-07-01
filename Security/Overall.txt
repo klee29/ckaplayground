@@ -74,3 +74,26 @@ View role binding? kubectl get rolebindings
 
 Check permission? can-i 
 ex) kubectl auth can-i create deployments 
+---
+
+Cluster Role and Role binding?
+How about bidning with non-namspace specified pod? 
+-> use 'Cluster scoped'
+   1) create 'cluster-role' 2) binds cluster role 
+
+---
+Image? 
+ex) image: nginx, where it pulls from? 
+   image: docker.io/ginx/nginx 
+          Registry/user account / image repository
+
+Private repository? 
+1) login my private repository: docker login private-registry.io 
+2) run image from private repository: docker run private-registry.io/apps/internal-app 
+3) create secret docker-registry: 
+   kubectl create secret docker-registry regcred / 
+   --docker-server=private-registry.io  \
+   --docker-username=registry-user \
+   --docker-password=registry-password \ 
+   --docker-email= ' ' \ 
+   
