@@ -97,3 +97,18 @@ Private repository?
    --docker-password=registry-password \ 
    --docker-email= ' ' \ 
    
+--- 
+
+Container Security? 
+
+
+--- 
+Network Policies?
+User -> Web (serving back end api) -> API -> DB 
+Ingress and Egress with diverse view points (Web server, API Server, DB ...) 
+
+Network Security in Kubernetes? 
+Each node has IP address which uses to communicate between them without any network setting like a router 
+By default, 'all allow' -> if we specify their communication between them we need to set network policy up. 
+   Label and Selector
+   Not all network solution supports this. (except Flannel)
