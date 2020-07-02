@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+    name: random-number-generator
+spec:
+    containers:
+        - image: alpine
+          name: alpine 
+          command: ["/bin/sh","-c"]
+          args: ["shuf -i 0-100 -n 1 >> /opt/number.out;"] # process data in /opt, after this opt deleted
+    volumes:
+        - name: data-volume 
+          hostPath: 
+            path: /data
+            type: Directory # we need to specify this volume path 
