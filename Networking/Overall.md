@@ -59,3 +59,7 @@ Each pod has its own virtual network interface.
   - How it works? how we integrate our script with this plug in?
     - place their agent(plug in) to each site
 - IPAM (Ip Address Management): CNI (Must manage IP assigned to pod) 
+- Service Network (ClusterIP, NodePort): need to talk to each other from other node (ClusterIP), hosts for web application (NodePort)
+  - Ex) 3 node clusters: pod -> () -> kube-proxy -> kubelet
+    - service works at () point across the nodes, 
+    - kube-proxy create iptable rule which it's default 
