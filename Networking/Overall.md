@@ -58,3 +58,4 @@ Each pod has its own virtual network interface.
 - WeaveWorks: weave cni plugin 
   - How it works? how we integrate our script with this plug in?
     - place their agent(plug in) to each site
+- IPAM (Ip Address Management): CNI (Must manage IP assigned to pod) 
