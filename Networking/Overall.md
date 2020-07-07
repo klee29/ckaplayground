@@ -63,3 +63,12 @@ Each pod has its own virtual network interface.
   - Ex) 3 node clusters: pod -> () -> kube-proxy -> kubelet
     - service works at () point across the nodes, 
     - kube-proxy create iptable rule which it's default 
+
+- Cluster DNS: why DNS? instead of ip address? Let's try to assume each pod sets in same CIDR range ip address, how some service can reach to each speicifc pod? all in the same namespace? or default namespace? 
+  - hostname.namepsace.type.root.ipaddress (FQDN) 
+  - pod.namepsace.type.root.ipaddress (FQDN); ex) 10-1-13-3 instead of dot (.). 
+- Implements DNS in Kubernetes?: check? cat >> /etc/hosts 
+  - remove those entry into dns server - cat >> /etc/resolv.conf
+  - kubedns? CoreDNS
+    - How we set up CoreDNS?: deploy as two pods, check? cat /etc/coredns/Corefile, kubectl get configmap -n kube-system -> kubectl get service -n kube-system 
+    - Even we send part of FQDN, they reponse with FQDN. 
