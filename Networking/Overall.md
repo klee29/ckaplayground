@@ -72,3 +72,8 @@ Each pod has its own virtual network interface.
   - kubedns? CoreDNS
     - How we set up CoreDNS?: deploy as two pods, check? cat /etc/coredns/Corefile, kubectl get configmap -n kube-system -> kubectl get service -n kube-system 
     - Even we send part of FQDN, they reponse with FQDN. 
+
+- Ingress Controller: Why? handle multiple load balancer and certificate
+  - Components?: Deployment(ingress controller), Service(service), ConfigMap(configmap), Auth (service account)
+  - Resources: each role handles each pod which provides service. (Path /service-1, 2, or etc)
+  - kubectl decribe ingress ' ' 
