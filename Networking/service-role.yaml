@@ -2,6 +2,7 @@ apiVersion: extensions/v1beta1
 kind: Ingress 
 metadata:
     name: ingress-service-2
+    namespace: ingress
 spec:
     rules:
         - host: service.my-example-website.com 
