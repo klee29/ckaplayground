@@ -48,3 +48,4 @@ After shown different container runtime source such as docker, rkt, cri-o, their
 - One to one relationship, if PVC is not availble? -> Pending 
 - Delete? What happend after it? Retain / Delete / Recycle(Scrubbed)
 
+Ex) Pod claimed pvc, pvc claimed pv, So if we try to delete pvc, it will be stucked at terminating states
